@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Palindrome Checker</title>
+</head>
+<body>
+
+<h1>Palindrome Checker</h1>
+<p>Enter a string to check if it is a palindrome:</p>
+
+<input type="text" id="inputString" placeholder="Enter string">
+<button onclick="checkPalindrome()">Check</button>
+
+<p id="result"></p>
+
+<script>
+function cleanString(str) {
+    return str.replace(/[^A-Za-z0-9]/g, '').toLowerCase();
+}
+
+function isPalindromeRecursive(str) {
+    // Base cases
+    if (str.length <= 1) {
+        return true;
+    }
+    if (str[0] !== str[str.length - 1]) {
+        return false;
+    }
+    // Recursive case
+    return isPalindromeRecursive(str.slice(1, -1));
+}
+
+function checkPalindrome() {
+    const inputString = document.getElementById('inputString').value;
+    const cleanedString = cleanString(inputString);
+    const resultElement = document.getElementById('result');
+
+    if (isPalindromeRecursive(cleanedString)) {
+        resultElement.textContent = `"${inputString}" is a palindrome.`;
+    } else {
+        resultElement.textContent = `"${inputString}" is not a palindrome.`;
+    }
+}
+</script>
+
+</body>
+</html>

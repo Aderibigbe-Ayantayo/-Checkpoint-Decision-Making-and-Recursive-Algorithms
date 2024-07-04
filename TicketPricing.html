@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ticket Pricing</title>
+</head>
+<body>
+
+<script>
+function determineTicketPrice() {
+    const age = parseInt(prompt("Enter your age:"));
+
+    if (isNaN(age) || age < 0) {
+        console.log("Please enter a valid age.");
+        return;
+    }
+
+    let ticketPrice;
+
+    if (age <= 12) {
+        ticketPrice = 10;
+    } else if (age >= 13 && age <= 17) {
+        ticketPrice = 15;
+    } else if (age >= 18) {
+        ticketPrice = 20;
+    }
+
+    console.log(`The ticket price is $${ticketPrice}.`);
+}
+
+determineTicketPrice();
+</script>
+
+</body>
+</html>
